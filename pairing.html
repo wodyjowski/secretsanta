@@ -29,7 +29,7 @@
 
         body {
             background: radial-gradient(#f78f8f, #c70c0c);
-            font-family: 'Comic Sans MS',  'Chalkboard SE';
+            font-family: 'Comic Sans MS', 'Chalkboard SE';
             overflow: hidden;
         }
 
@@ -86,6 +86,7 @@
         }
 
         .wrapper {
+            max-width: 90%;
             margin: auto;
             padding: 20px;
 
@@ -157,15 +158,29 @@
 
         @keyframes up-and-down {
             from {
-                transform: translate(0, 0);
+                translate: 0 0;
             }
 
             50% {
-                transform: translate(0, 15px);
+                translate: 0 15px;
             }
 
             to {
-                transform: translate(0, 0);
+                translate: 0 0;
+            }
+        }
+
+        @keyframes move-sideways {
+            from {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+
+            to {
+                transform: rotate(0deg);
             }
         }
 
@@ -177,11 +192,30 @@
         }
 
         .up-and-down {
-            animation: up-and-down;
-            animation-duration: 5s;
+            animation: up-and-down 5s, move-sideways 6s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out
         }
+
+        @media only screen and (max-width: 600px) {
+            img {
+                display: none;
+            }
+
+            .bigsanta {
+                display: inline;
+                right: 50% !important;
+                width: 70% !important;
+            }
+            
+            .musclesanta {
+                display: inline;
+                left: 50% !important;
+                width: 70% !important;
+                top: 0px !important;
+            }
+        }
+
     </style>
 
     <script>
@@ -207,7 +241,7 @@
         position: fixed;
         z-index: -20;
         width: 35%;
-        rotate: 9deg;" class="up-and-down" />
+        rotate: 9deg;" class="up-and-down bigsanta" />
 
     <img src="assets/santa_2.png" style="
         left: -15px;
@@ -216,7 +250,7 @@
         z-index: -20;
         width: 24%;
         rotate: -9deg;
-        animation-delay: -3s;" class="up-and-down" />
+        animation-delay: -3s;" class="up-and-down musclesanta" />
 
     <img src="assets/santa_3.png" style="
         left: 12%;
